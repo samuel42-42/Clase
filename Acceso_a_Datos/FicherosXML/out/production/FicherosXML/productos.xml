@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+    <producto codigo="P01">
+        <nombre>Teclado</nombre>
+        <precio>25.90</precio>
+        <stock>12</stock>
+    </producto>
+    <producto codigo="P02">
+        <nombre>Ratón</nombre>
+        <precio>12.50</precio>
+        <stock>3</stock>
+    </producto>
+    <producto codigo="P03">
+        <nombre>Monitor</nombre>
+        <precio>149.99</precio>
+        <stock>7</stock>
+    </producto>
+    <producto codigo="P04">
+        <nombre>Webcam</nombre>
+        <precio>39.00</precio>
+        <stock>2</stock>
+    </producto>
+</productos>

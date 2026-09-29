@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<concesionario>
+    <coche id="1">
+        <marca>Renault</marca>
+        <modelo>Megane</modelo>
+        <cilindrada>1.5</cilindrada>
+    </coche>
+    <coche id="2">
+        <marca>Seat</marca>
+        <modelo>León
+        <cilindrada>1.6</cilindrada>
+    </coche>
+</concesionario>
