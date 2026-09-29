@@ -1,0 +1,48 @@
+======================================================
+Configurar entorno de programación en el Ubuntu de WSL
+IES Arquitecto Ventura Rodríguez
+Prof.MUrios / DAM2 /202526
+======================================================
+
+
+------------------------------------
+Configurar WSL en Win11
+------------------------------------
+<1> PowerShell como Admin > wsl --install
+<2> Reiniciar
+
+Refs para los alumnos: 
+https://learn.microsoft.com/es-es/windows/wsl/install
+
+
+Alternativa:
+Doker Ubuntu
+
+
+------------------------------------
+Actualizar Ubuntu y cargar gcc
+------------------------------------
+<1> sudo apt update
+<2> sudo apt install gcc
+<3> si no está "nano" instalarlo
+
+--------------------------------------
+Crear una carpeta de trabajo "psp"
+ubicarme en ella,
+editar el código C con "nano"
+y compilar en  con el compilador "gcc"
+--------------------------------------
+mkdir psp
+cd psp
+ll
+nano ejemploExec.c
+gcc ejemploExec.c -o ejemploExec
+
+------------------------------------
+Comprobar carpeta de trabajo con ll
+y ejecutar el resultado en ./
+------------------------------------
+
+ll
+./ejemploExec
+
