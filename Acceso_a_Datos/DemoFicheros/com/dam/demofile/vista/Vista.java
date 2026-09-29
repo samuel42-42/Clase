@@ -13,13 +13,13 @@ public class Vista implements InterfazVista{
     }
     public void menu(){
         System.out.println("Menu");
-        System.out.println("0-Leer archivo");
+        System.out.println("0-Salir");
         System.out.println("1-Crear Directorio nuevo");
         System.out.println("2-Crear fichero nuevo");
         System.out.println("3-Listar contenido");
         System.out.println("4-Renombrar fichero");
         System.out.println("5-Eliminar fichero");
-        System.out.println("6-Salir");
+        System.out.println("6-Leer archivo");
         opciones();
     }
 
@@ -28,38 +28,19 @@ public class Vista implements InterfazVista{
         while(true){
             option=pedirOpcion("Introduce la opción:");
             switch (option) {
-                case 0-> controlador.actionPerformed(new ActionEvent(this, option, LECTURA));
+                case 0-> controlador.actionPerformed(new ActionEvent(this, option, SALIR));
                 case 1->
                     controlador.actionPerformed(new ActionEvent(this,option,CREARD));
                 case 2->
                     controlador.actionPerformed(new ActionEvent(this,option,CREARF));
                 case 3->
-                    controlador.actionPerformed(new ActionEvent(this,option,LISTAR))
-
-                /*
-                case 2:
-                    crearFichero();
-                    break;
-                case 3:
-                    listarContenido();
-                    break;
-                case 4:
-                    renombrarFichero();
-                    break;
-                case 5:
-                    eliminarFichero();
-                    break;
-
-                case 6:
-                    System.out.println("Saliendo...");
-                    System.exit(0);
-                case 7:
-                    break;
-
-                case 8:
-                    break;
-                case 9:
-                    break;*/
+                    controlador.actionPerformed(new ActionEvent(this,option,LISTAR));
+                case 4->
+                    controlador.actionPerformed(new ActionEvent(this,option,RENAME));
+                case 5->
+                    controlador.actionPerformed(new ActionEvent(this,option,ELIMINAR));
+                case 6->
+                    controlador.actionPerformed(new ActionEvent(this,option,LECTURA));
             }
             menu();
         }

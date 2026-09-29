@@ -27,14 +27,16 @@ public class Controlador implements ActionListener {
             }
             case InterfazVista.LECTURA -> {
                 s = vista.pedirString("Dime, qué fichero quieres ver?");
-                vista.mostrarMensaje(modelo.leeFichero(s));
+                vista.mostrarMensaje(modelo.leerFichero(s));
             }
             case InterfazVista.CREARF -> {
                 s=vista.pedirString("Dime, cuál es el nombre del fichero?");
                 vista.mostrarMensaje(modelo.crearFichero(s));
             }
             case InterfazVista.LISTAR -> {
-                s=vista.pedirString("Dime, cuál es el nombre del fichero");
+                s=vista.pedirString("Dime, cuál es el nombre de la carpeta?");
+                
+                vista.mostrarMensaje(modelo.listarContenido(s));
             }
         }
     }

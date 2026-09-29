@@ -3,10 +3,13 @@ package com.dam.demofile.modelo;
 import com.dam.demofile.vista.Vista;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Modelo {
+
     public String crearCarpeta(String nombreCarpeta){
         File directorio= new File(nombreCarpeta);
         if(directorio.mkdir()){
@@ -35,19 +38,21 @@ public class Modelo {
     public String leerFichero (String nombreFichero){
         try {
             File fichero = new File(nombreFichero);
-            BufferedReader fichero = new BufferedReader(new FileReader(fic));
-            String linea;
+            FileReader fr = new FileReader(nombreFichero);
+            String linea = fr.toString();
+            return linea;
         }
         catch (FileNotFoundException fn){
-            System.out.println("No se encuentra el fichero");}
+            return "No se encuentra el fichero";
+        }
         catch (IOException io){
-            System.out.println("Error de E/S");}
+            return "Error de E/S";
         }
     }
 
-    public static void listarContenido(){
-
-        File[] elementos= carpeta.listFiles();
+    public static File listarContenido(String carpeta){
+        File directorio= new File(carpeta);
+        File[] elementos= directorio.listFiles();
         if (elementos != null) {
             int contador=0;
             for (File elemento : elementos) {
@@ -62,11 +67,13 @@ public class Modelo {
                 System.out.println("No hay ningún fichero ni archivo");
             }
         }
+        return directorio;
     }
 
-    public static void renombrarFichero(){
-        listarContenido();
-        File[] elementos= carpeta.listFiles();
+    public static void renombrarFichero(String carpeta){
+        listarContenido(carpeta);
+        File directorio= listarContenido(carpeta);
+        File[] elementos= directorio.listFiles();
         System.out.println("Qué fichero quieres renombrar?");
         Scanner input = new Scanner(System.in);
         if(elementos!=null) {
@@ -74,7 +81,7 @@ public class Modelo {
                 if (elemento.getName().equals(input.nextLine())) {
                     System.out.println("Dime qué nombre le quieres poner al fichero");
                     input = new Scanner(System.in);
-                    File nuevoNombre = new File(carpeta,input.nextLine());
+                    File nuevoNombre = new File(elemento,input.nextLine());
                     if(elemento.renameTo(nuevoNombre)){
                         System.out.println("Renombrado correctamente, compruebalo");
                         break;
@@ -82,15 +89,15 @@ public class Modelo {
                 }
                 else {
                     System.out.println("El elemento no existe, introduce otro nombre");
-                    renombrarFichero();
+                    renombrarFichero(carpeta);
                 }
             }
         }
     }
 
-    public static void eliminarFichero(){
-        listarContenido();
-        File[] elementos= carpeta.listFiles();
+    public static void eliminarFichero(String carpeta){
+        File directorio = listarContenido(carpeta);
+        File[] elementos= directorio.listFiles();
         System.out.println("Qué fichero quieres eliminar?");
         Scanner input = new Scanner(System.in);
         if(elementos!=null) {
@@ -103,7 +110,7 @@ public class Modelo {
                 }
                 else {
                     System.out.println("El elemento no existe, introduce otro nombre");
-                    eliminarFichero();
+                    eliminarFichero(carpeta);
                 }
             }
         }
